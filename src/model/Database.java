@@ -1,0 +1,153 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package model;
+
+import controller.IncrementVersionRunnable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+ * Deze static class zorgt voor de verbinding tussen de applicatie en de database. 
+ * 
+ * Een juiste volgorde van methoden kan zijn:
+ * 
+ *  Database.initilizeDatabase();
+ *  Database.openConnection();
+ *  
+ *  Database.createStatement();
+ *  ResultSet resultset = Database.executeQuery(deQuery);
+ *  String naam = resultset.getString(deColumn);
+ *  resultset.close();     
+ *  Database.closeStatement();     
+ *  
+ *  Database.closeConnection(); 
+ *      
+ *  Gebruik altijd deze class om connecties naar de Database mee te maken.
+ * 
+ * 
+ *        
+ * 
+ * 
+ * @author B.R. Niamut
+ */
+public class Database {
+
+    public static long version = -1;
+    private static String url;
+    private static String user;
+    private static String password;
+    private static Connection connection;
+    public static Statement statement;
+    //private static boolean ongoing = false;
+
+
+    
+    /**
+     * Initialiseert de database met de standaard waarden van de Oege-Database. 
+     */
+    public static void initializeDatabase() {
+        Database.url = "jdbc:mysql://localhost/zkruije17";
+        Database.user = "kruije17";
+        Database.password = "vLws85Rv(";
+        
+        
+    }
+
+    /**
+     * Initialiseert de database met de variablen opgegeven in de methoden.
+     * @param url De url van de database.
+     * @param user De username van de database.
+     * @param password Het wachtwoord van de datebase.
+     */
+    public static void initializeDatabase(String url, String user, String password) {
+        Database.url = url;
+        Database.user = user;
+        Database.password = password;
+    }
+
+    /**
+     * Opent de connectie naar de database toe.
+     * @throws SQLException
+     */
+    public static void openConnection() throws SQLException {
+        connection = DriverManager.getConnection(url, user, password);
+        //schrijf hier nog de methode dat hij versienumme moet ophalen.
+    }
+
+    /**
+     * Sluit de connectie naar de database toe. 
+     * @throws SQLException
+     */
+    public static void closeConnection() throws SQLException {
+        connection.close();
+
+    }
+
+    /**
+     * Voert een query uit zonder resultaat. Zoals INSERT INTO of UPDATE.
+     * @param query De query die uitgevoerd moet worden.
+     * @throws SQLException
+     */
+    public static void executeUpdate(String query) throws SQLException {
+
+        statement.executeUpdate(query);
+        
+        // hier moet iets komen wat lokaal de versie + 1 doet, en die van de database
+       Thread incrementVersionThread = new Thread(new IncrementVersionRunnable());
+       incrementVersionThread.start();
+       
+
+
+    }
+    
+    /**
+     * Voert een query uit zonder resultaat. Zoals INSERT INTO of UPDATE.
+     * Verschil met executeUpdate: verhoogt de versienummer NIET.
+     * Deze methode niet/zeer sporadisch gebruiken!
+     * @param query De query die uitgevoerd moet worden.
+     * @throws SQLException 
+     */
+    public static void executeCleanUpdate(String query) throws SQLException{
+        statement.executeUpdate(query);
+    }
+
+    /**
+     * Voert een query uit met resultaten.
+     * @param query De query die uitgevoerd moet worden.
+     * @return Geeft een ResultSet van de resultaten terug.
+     * @throws SQLException
+     */
+    public static ResultSet executeQuery(String query) throws SQLException {
+        
+        System.out.println(query);
+
+        ResultSet executeQuery = statement.executeQuery(query);
+        executeQuery.first();
+        
+        return executeQuery;
+
+    }
+
+    /** 
+     * Maakt een statement aan. Deze functie moet altijd aangeroepen worden voordat er een Query wordt uitgevoerd!
+     * @throws SQLException
+     */
+    public static void createStatement() throws SQLException {
+        statement = connection.createStatement();
+
+    }
+
+    /**
+     * Sluit de statement. 
+     * @throws SQLException
+     */
+    public static void closeStatement() throws SQLException {
+        statement.close();
+        statement = null;
+    }
+}

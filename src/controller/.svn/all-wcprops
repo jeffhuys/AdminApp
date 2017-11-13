@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/out2011_tc8/!svn/ver/189/OutfitAdminAppMVC/src/controller
+END
+IncrementVersionRunnable.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/out2011_tc8/!svn/ver/188/OutfitAdminAppMVC/src/controller/IncrementVersionRunnable.java
+END
+SettingsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/out2011_tc8/!svn/ver/185/OutfitAdminAppMVC/src/controller/SettingsController.java
+END
+LogController.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/out2011_tc8/!svn/ver/188/OutfitAdminAppMVC/src/controller/LogController.java
+END
+UsersController.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/out2011_tc8/!svn/ver/176/OutfitAdminAppMVC/src/controller/UsersController.java
+END
+ExportController.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/out2011_tc8/!svn/ver/188/OutfitAdminAppMVC/src/controller/ExportController.java
+END
+DoorController.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/out2011_tc8/!svn/ver/188/OutfitAdminAppMVC/src/controller/DoorController.java
+END
+DistancesensorController.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/out2011_tc8/!svn/ver/188/OutfitAdminAppMVC/src/controller/DistancesensorController.java
+END
+ReaderRunnable.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/out2011_tc8/!svn/ver/189/OutfitAdminAppMVC/src/controller/ReaderRunnable.java
+END
+ApplicationRunnable.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/out2011_tc8/!svn/ver/188/OutfitAdminAppMVC/src/controller/ApplicationRunnable.java
+END
+DatabaseRunnable.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/out2011_tc8/!svn/ver/188/OutfitAdminAppMVC/src/controller/DatabaseRunnable.java
+END
+LoginController.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/out2011_tc8/!svn/ver/171/OutfitAdminAppMVC/src/controller/LoginController.java
+END
+ReaderHandeling.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/out2011_tc8/!svn/ver/182/OutfitAdminAppMVC/src/controller/ReaderHandeling.java
+END
+StatisticsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/out2011_tc8/!svn/ver/151/OutfitAdminAppMVC/src/controller/StatisticsController.java
+END
